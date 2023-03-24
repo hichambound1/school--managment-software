@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('profile_langs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->date("birthday")->nullable();
-            $table->string("cin")->unique();
+            $table->string("first_name");
+            $table->string("last_name");
+            $table->string("address");
+            $table->foreignId('profile_id')->constrained();
+            $table->foreignId('language_id')->constrained();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('profile_langs');
     }
 };

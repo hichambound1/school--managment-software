@@ -7,17 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Profile extends Model
+class UserFile extends Model
 {
     use HasFactory,SoftDeletes;
-    protected $fillable = [
-        'cin',
-        'birthday',
+    protected $fillable= [
+        'name',
+        'path',
         'user_id',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
+
