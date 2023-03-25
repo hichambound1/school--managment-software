@@ -7,16 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Country extends Model
+class Plan extends Model
 {
     use HasFactory,SoftDeletes;
-    protected $fillable=[
+    protected $fillable = [
         'name_en',
         'name_ar',
+        'name_en',
+        'description_en',
+        'description_ar',
+        'description_fr',
+        'price',
     ];
 
-    public function cities()
+    public function options()
     {
-        return $this->hasMany(City::class);
+        return $this->hasMany(Option::class);
     }
 }

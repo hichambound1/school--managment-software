@@ -22,4 +22,8 @@ class ProfileLang extends Model
     {
         return $this->belongsTo(Language::class);
     }
+    public function profile()
+    {
+        return $this->belongsTo(Profile::class);
+    }
 }
