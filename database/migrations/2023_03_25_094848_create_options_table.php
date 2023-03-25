@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string("key")->nullable();
             $table->integer("value")->nullable();
 
+            $table->foreignId('plan_id')->constrained();
             $table->softDeletes();
             $table->timestamps();
         });

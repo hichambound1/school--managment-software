@@ -19,7 +19,8 @@ class Option extends Model
         'description_fr',
         'key',
         'value',
-        'price',
+        'plan_id',
+
     ];
 
     public function plan()

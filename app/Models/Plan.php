@@ -18,6 +18,8 @@ class Plan extends Model
         'description_ar',
         'description_fr',
         'price',
+        'unit',
+        'per',
     ];
 
     public function options()

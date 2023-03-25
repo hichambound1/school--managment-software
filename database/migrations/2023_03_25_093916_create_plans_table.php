@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string("description_fr")->nullable();
 
             $table->integer("price")->nullable();
+            $table->string("unit")->nullable();
+            $table->string("per")->nullable();
 
             $table->softDeletes();
             $table->timestamps();
