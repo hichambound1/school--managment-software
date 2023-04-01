@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BackOffice\OptionController;
 use App\Http\Controllers\BackOffice\PlanController;
@@ -34,6 +35,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
                 Route::POST('/store', [OptionController::class, 'StoreOneOption']);
                 Route::POST('/storeMany', [OptionController::class, 'StoreManyOption']);
                 Route::DELETE('/deleteOne/{id}', [OptionController::class, 'deleteOption']);
+            });
+            Route::prefix('adminUsers')->group(function () {
+
+                Route::get('/list', [AdminUsersController::class, 'getUsers']);
+                Route::put('/DeactivateUser/{id}', [AdminUsersController::class, 'DeactivateUser']);
+                Route::put('/DeactivateUser/{id}', [AdminUsersController::class, 'ActivateUser']);
             });
         });
     });

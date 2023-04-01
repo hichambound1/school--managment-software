@@ -15,7 +15,7 @@ class Profile extends Model
         'birthday',
         'user_id',
     ];
-
+    protected $with = ['profileLanguage'];
     public function user()
     {
         return $this->belongsTo(User::class);
