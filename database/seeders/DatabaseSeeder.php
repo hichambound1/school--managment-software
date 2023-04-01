@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleAndPermissionSeeder::class);
         $this->call(PlanOptionSeeder::class);
         $this->call(LanguageSeeder::class);
+        $this->call(SuperAdminSeeder::class);
     }
 }
