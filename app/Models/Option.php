@@ -13,7 +13,7 @@ class Option extends Model
     protected $fillable = [
         'name_en',
         'name_ar',
-        'name_en',
+        'name_fr',
         'description_en',
         'description_ar',
         'description_fr',

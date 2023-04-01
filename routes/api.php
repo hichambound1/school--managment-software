@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\BackOffice\OptionController;
 use App\Http\Controllers\BackOffice\PlanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,13 @@ Route::middleware(['auth:sanctum'])->group(function () {
             Route::PUT('/update', [PlanController::class, 'update']);
             Route::POST('/store', [PlanController::class, 'store']);
             Route::DELETE('/deleteOne', [PlanController::class, 'delete']);
+        });
+        Route::prefix('options')->group(function () {
+            Route::get('/{id}', [OptionController::class, 'getOne']);
+            Route::PUT('/update', [OptionController::class, 'UpdateOneOption']);
+            Route::POST('/store', [OptionController::class, 'StoreOneOption']);
+            Route::POST('/storeMany', [OptionController::class, 'StoreManyOption']);
+            Route::DELETE('/deleteOne/{id}', [OptionController::class, 'deleteOption']);
         });
     });
 });
