@@ -20,4 +20,9 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function profileLanguage()
+    {
+        return $this->hasMany(ProfileLang::class);
+    }
 }

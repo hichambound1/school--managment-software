@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MorrocoCitiesSeeder::class);
         $this->call(RoleAndPermissionSeeder::class);
         $this->call(PlanOptionSeeder::class);
+        $this->call(LanguageSeeder::class);
     }
 }
