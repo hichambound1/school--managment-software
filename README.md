@@ -23,17 +23,22 @@ By using this SaaS solution, schools can streamline their administrative process
 
 2. Navigate to the project directory:
    
+   ```bash
    cd school--managment-software
 
 3. Install the project dependencies using Composer:
 
+    ```bash
     composer install
 
 4. Copy the .env.example file to create a new .env file:
     
+    ```bash
     cp .env.example .env
+    
 5. Update the .env file with your database credentials:
 
+    ```bash
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
@@ -42,19 +47,23 @@ By using this SaaS solution, schools can streamline their administrative process
     DB_PASSWORD=[database-password]
 
 6. Generate a new application key:
-
+    
+    ```bash
     php artisan key:generate
 
 7. Run the database migrations to create the required tables:
 
+    ```bash
     php artisan migrate
 
 8. Seed the database with some sample data:
 
+    ```bash
     php artisan db:seed
 
 9. Start the development server:
 
+    ```bash
     php artisan serve
 
 ## RUN THE PROJECT
