@@ -13,12 +13,14 @@ class PlanController extends Controller
 {
     public function viewAll()
     {
+        $this->authorize('can_view_plan');
         $plans_with_options= Plan::with('options')->get();
 
         return response($plans_with_options,200);
     }
     public function viewOne($id)
     {
+        $this->authorize('can_view_plan');
         $plan= Plan::whereId($id)->first();
         if($plan){
             $plan= Plan::whereId($id)->with('options')->first();
@@ -31,6 +33,7 @@ class PlanController extends Controller
 
     public function update(UpdatePlanRequest $request)
     {
+        $this->authorize('can_edit_plan');
         $plan_with_options= Plan::whereId($request->id)->update([
             'name_en'=>$request->name_en,
             'name_ar'=>$request->name_ar,
@@ -47,6 +50,8 @@ class PlanController extends Controller
     }
     public function store(StorePlanRequest $request)
     {
+        $this->authorize('can_add_plan');
+
         $plan_with_options= Plan::create([
             'name_en'=>$request->name_en,
             'name_ar'=>$request->name_ar,
@@ -63,6 +68,7 @@ class PlanController extends Controller
     }
     public function delete(DeletePlanRequest $request)
     {
+        $this->authorize('can_delete_plan');
         Plan::whereId($request->id)->delete();
         return response("plan deleted",200);
     }

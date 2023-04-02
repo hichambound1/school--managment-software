@@ -27,35 +27,43 @@ class RoleAndPermissionSeeder extends Seeder
         ];
         $permissions=[
             //user
+            "can_view_user",
             "can_add_user",
             "can_edit_user",
             "can_delete_user",
             //role
+            "can_view_role",
             "can_delete_role",
             "can_edit_role",
             "can_add_role",
             //permissions
+            "can_view_permission",
             "can_add_permission",
             "can_edit_permission",
             "can_delete_permission",
             //city
+            "can_view_city",
             "can_add_city",
             "can_edit_city",
             "can_delete_city",
             //country
+            "can_view_country",
             "can_add_country",
             "can_edit_country",
             "can_delete_country",
             //language
+            "can_view_language",
             "can_add_language",
             "can_edit_language",
             "can_delete_language",
             //plan
+            "can_view_plan",
             "can_add_plan",
             "can_edit_plan",
             "can_delete_plan",
             //option
             "can_add_option",
+            "can_view_option",
             "can_edit_option",
             "can_delete_option",
         ];
