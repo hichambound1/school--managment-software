@@ -33,6 +33,8 @@ class AuthController extends Controller
         return response($response, 201);
     }
     public function registerAdmin(RegisterRequest $request) {
+
+        $this->authorize('can_add_user');
         $user= User::create([
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
