@@ -125,4 +125,14 @@ class AdminUsersController extends Controller
         return response("record updated succefully",200);
 
     }
+    public function deleteAdmin($id)
+    {
+        $user= User::whereId($id)->first();
+        if(isset($user)){
+            $user->delete();
+            return response("user deleted succefully ",200);
+        }else{
+            return response("user not found ",404);
+        }
+    }
 }

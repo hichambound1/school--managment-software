@@ -39,6 +39,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
                 Route::put('/ActivateUser/{id}', [AdminUsersController::class, 'ActivateUser']);
                 Route::put('/update', [AdminUsersController::class, 'update']);
                 Route::post('/storeAdmin', [AdminUsersController::class, 'storeAdmin']);
+                Route::DELETE('/delete', [AdminUsersController::class, 'deleteAdmin']);
             });
         });
     });
