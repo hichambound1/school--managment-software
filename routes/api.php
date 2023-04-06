@@ -4,13 +4,9 @@ use App\Http\Controllers\BackOffice\AdminUsersController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BackOffice\OptionController;
 use App\Http\Controllers\BackOffice\PlanController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/registerAdmin', [AuthController::class, 'registerAdmin']);
@@ -41,6 +37,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
                 Route::get('/list', [AdminUsersController::class, 'getUsers']);
                 Route::put('/DeactivateUser/{id}', [AdminUsersController::class, 'DeactivateUser']);
                 Route::put('/ActivateUser/{id}', [AdminUsersController::class, 'ActivateUser']);
+                Route::put('/update', [AdminUsersController::class, 'update']);
+                Route::post('/storeAdmin', [AdminUsersController::class, 'storeAdmin']);
             });
         });
     });
