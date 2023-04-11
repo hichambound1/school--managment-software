@@ -4,6 +4,7 @@ use App\Http\Controllers\BackOffice\AdminUsersController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BackOffice\OptionController;
 use App\Http\Controllers\BackOffice\PlanController;
+use App\Http\Controllers\BackOffice\RolesPermissionsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,6 +32,19 @@ Route::middleware(['auth:sanctum'])->group(function () {
                 Route::POST('/store', [OptionController::class, 'StoreOneOption']);
                 Route::POST('/storeMany', [OptionController::class, 'StoreManyOption']);
                 Route::DELETE('/deleteOne/{id}', [OptionController::class, 'deleteOption']);
+            });
+            Route::prefix('roles')->group(function () {
+                Route::get('getAll/', [RolesPermissionsController::class, 'getAll']);
+                Route::get('getOne/{id}', [RolesPermissionsController::class, 'getOne']);
+                Route::post('/store', [RolesPermissionsController::class, 'storeRole']);
+                Route::put('/update', [RolesPermissionsController::class, 'updateRole']);
+                Route::put('/syncPermissions', [RolesPermissionsController::class, 'syncPermissions']);
+            });
+            Route::prefix('permissions')->group(function () {
+                Route::get('getAll/', [RolesPermissionsController::class, 'allPermissions']);
+                Route::get('getOne/{id}', [RolesPermissionsController::class, 'GetPermission']);
+                Route::post('store', [RolesPermissionsController::class, 'storePermission']);
+                Route::put('/update', [RolesPermissionsController::class, 'updatePermission']);
             });
             Route::prefix('adminUsers')->group(function () {
 
