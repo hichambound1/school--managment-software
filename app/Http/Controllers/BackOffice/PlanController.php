@@ -66,10 +66,16 @@ class PlanController extends Controller
 
         return response($plan_with_options,200);
     }
-    public function delete(DeletePlanRequest $request)
+    public function delete($id)
     {
         $this->authorize('can_delete_plan');
-        Plan::whereId($request->id)->delete();
-        return response("plan deleted",200);
+        $plan= Plan::whereId($id)->first();
+        if(isset($plan)){
+            Plan::whereId($id)->delete();
+            return response("plan deleted",200);
+        }else{
+            return response("plan not found",404);
+
+        }
     }
 }
