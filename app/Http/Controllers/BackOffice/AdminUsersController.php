@@ -18,7 +18,7 @@ class AdminUsersController extends Controller
     public function getUsers()
     {
         $this->authorize('can_view_user');
-        $adminsAndSuperAdminsUsers= User::where('is_admin',1)->paginate();
+        $adminsAndSuperAdminsUsers= User::where('is_admin',1)->get();
         return response($adminsAndSuperAdminsUsers,200);
     }
     public function DeactivateUser($id)
