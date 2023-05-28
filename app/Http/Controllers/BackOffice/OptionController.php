@@ -20,6 +20,16 @@ class OptionController extends Controller
             return response("Option not found",404);
         }
     }
+    public function getAll()
+    {
+        $this->authorize('can_view_option');
+        $oneOption = Option::all();
+        if(isset($oneOption)){
+            return response($oneOption,200);
+        }else{
+            return response("Option not found",404);
+        }
+    }
     public function StoreOneOption(StoreOneOptionRequest $request)
     {
         $this->authorize('can_add_option');

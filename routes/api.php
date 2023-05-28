@@ -27,6 +27,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
                 Route::DELETE('/deleteOne', [PlanController::class, 'delete']);
             });
             Route::prefix('options')->group(function () {
+                Route::get('/', [OptionController::class, 'getAll']);
                 Route::get('/{id}', [OptionController::class, 'getOne']);
                 Route::PUT('/update', [OptionController::class, 'UpdateOneOption']);
                 Route::POST('/store', [OptionController::class, 'StoreOneOption']);
