@@ -21,6 +21,16 @@ class AdminUsersController extends Controller
         $adminsAndSuperAdminsUsers= User::where('is_admin',1)->get();
         return response($adminsAndSuperAdminsUsers,200);
     }
+    public function getOneUser($id)
+    {
+        $this->authorize('can_view_user');
+        $admin= User::where('is_admin',1)->whereId($id)->first();
+        if(isset($admin)){
+            return response($admin,200);
+        }else{
+            return response("User not found",404);
+        }
+    }
     public function DeactivateUser($id)
     {
         $this->authorize('can_edit_user');

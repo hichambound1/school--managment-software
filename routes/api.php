@@ -50,6 +50,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
             Route::prefix('adminUsers')->group(function () {
 
                 Route::get('/list', [AdminUsersController::class, 'getUsers']);
+                Route::get('/one/{id}', [AdminUsersController::class, 'getOneUser']);
                 Route::put('/DeactivateUser/{id}', [AdminUsersController::class, 'DeactivateUser']);
                 Route::put('/ActivateUser/{id}', [AdminUsersController::class, 'ActivateUser']);
                 Route::put('/update', [AdminUsersController::class, 'update']);
